@@ -1,0 +1,15 @@
+{
+  "description": "Cloudflare Worker host for Tinker rooms: a Directory Durable Object (accounts, rooms, invites, guest names, agent tokens, GitHub/dev auth, the server identity key) and a Room Durable Object per room (RoomEngine behind hibernatable WebSockets). Chat storage lands in M3b; see src/room.rs and src/directory.rs.",
+  "files": [
+    "index_bg.wasm",
+    "index.js",
+    "index.d.ts"
+  ],
+  "main": "index.js",
+  "name": "tinker-cloudflare-host",
+  "sideEffects": [
+    "./index.js"
+  ],
+  "type": "module",
+  "version": "0.1.0"
+}

@@ -1,0 +1,23 @@
+# All of these are optional. For local testing (`npx wrangler dev`), copy
+# what you need to `.dev.vars` (gitignored). For a real deployment, set them
+# with `npx wrangler secret put <NAME>` (or the Deploy button's prompts) —
+# never commit real values.
+
+# Room audio (LiveKit). Leave all three unset to keep room audio off
+# (POST /rooms/{id}/audio 404s — same as tinker-server without --livekit-*).
+# Create a project at https://cloud.livekit.io, then Settings -> Keys.
+# LIVEKIT_URL=wss://<project>.livekit.cloud
+# LIVEKIT_KEY=<api key>
+# LIVEKIT_SECRET=<api secret>
+
+# GitHub sign-in. Create a GitHub OAuth app (Settings -> Developer settings
+# -> OAuth Apps; any homepage/callback URL; tick "Enable Device Flow") and
+# set its client id. Leave unset to disable GitHub sign-in — guest sign-in
+# works either way, with no setup.
+# GITHUB_CLIENT_ID=Iv1.abc123
+
+# There is no DEV_AUTH here on purpose. This bundle is what a real deploy
+# runs, and dev sign-in (anyone can sign in as anyone) must never be
+# reachable on a public Worker — it only exists for `wrangler dev` in the
+# main Tinker repo's own hosts/cloudflare checkout, never in a deployed
+# environment's vars or secrets.

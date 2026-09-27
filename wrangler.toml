@@ -1,0 +1,24 @@
+name = "tinker-room-host"
+main = "build/worker/shim.mjs"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+[durable_objects]
+bindings = [
+  { name = "ROOM", class_name = "RoomObject" },
+  { name = "DIRECTORY", class_name = "DirectoryObject" },
+]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RoomObject", "DirectoryObject"]
+
+# No [build] section: this wrangler.toml ships next to an already-built
+# build/worker/ (see hosts/cloudflare/scripts/make-deploy-bundle.sh in the
+# main Tinker repo, which wrote this file) — `wrangler deploy` needs no Rust
+# toolchain.
+#
+# Optional secrets (`npx wrangler secret put <NAME>`, or the Deploy button's
+# prompts) — see .dev.vars.example. There is no DEV_AUTH here: dev sign-in
+# (anyone as anyone) must never be reachable on a deployed Worker, only on
+# `wrangler dev` in the main repo's own hosts/cloudflare checkout.

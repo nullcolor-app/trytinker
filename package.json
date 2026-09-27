@@ -1,0 +1,12 @@
+{
+  "name": "trytinker",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A prebuilt Tinker room server for Cloudflare Workers. Deploy with the button in README.md, or `npx wrangler deploy` — no Rust toolchain needed.",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
